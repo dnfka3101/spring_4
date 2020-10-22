@@ -9,6 +9,6 @@
   		
   		<typeAlias type = "com.wr.s4.board.notice.NoticeDTO" alias="NoticeDTO"></typeAlias>
   		<typeAlias type="com.wr.s4.board.qna.QnaDTO" alias="QnaDTO"/>
-  		
+  		<typeAlias type="com.wr.s4.util.Pager" alias="Pager"/>
   	</typeAliases>
   </configuration>
