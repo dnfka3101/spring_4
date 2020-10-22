@@ -59,4 +59,41 @@ public class NoticeController {
 		mv.setViewName("common/result");
 		return mv;
 	}
+	
+	@GetMapping("noticeSelect")
+	public ModelAndView getOne(BoardDTO boardDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		boardDTO= noticeService.getOne(boardDTO);
+		mv.addObject("select", boardDTO);
+		mv.setViewName("board/boardSelect");
+		
+		if(boardDTO != null) {
+			mv.setViewName("board/boardSelect");
+			mv.addObject("dto", boardDTO);
+			mv.addObject("board", "notice");
+		}else {
+			mv.setViewName("common/result");
+			mv.addObject("msg", "No Data");
+			mv.addObject("path", "./noticeList");
+		}
+		
+		return mv;
+	}
+	@PostMapping("noticeUpate")
+	public ModelAndView setDelete(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = noticeService.setUpdate(boardDTO);
+		String message= "Upate 실패!";
+		if(result>0) {
+			message = "Upate 성공!";
+		}
+		mv.addObject("msg", message);
+		mv.addObject("path", "./noticeList");
+		
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
 }
