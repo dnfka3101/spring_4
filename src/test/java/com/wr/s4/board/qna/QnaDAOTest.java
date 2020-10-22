@@ -27,13 +27,14 @@ public class QnaDAOTest extends MyTestCase {
 	}
 	
 	//@Test
-	public void setInsertTest() throws Exception {
+	public void setInsertTest()throws Exception{
 		BoardDTO boardDTO = new BoardDTO();
 		boardDTO.setTitle("title test");
 		boardDTO.setWriter("writer test");
-		boardDTO.setContents("contents");
+		boardDTO.setContents("contents test");
 		int result = qnaDAO.setInsert(boardDTO);
 		assertEquals(1, result);
 		
 	}
+
 }
